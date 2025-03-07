@@ -31163,9 +31163,19 @@ var githubExports = requireGithub();
 async function run() {
   try {
     // The `who-to-greet` input is defined in action metadata file
-    const whoToGreet = coreExports.getInput('who-to-greet', { required: true });
-    coreExports.info(`Hello, ${whoToGreet}!`);
-
+	const whoToGreet = core.getInput('message', { required: true })
+    // core.info(`Hello, ${whoToGreet}!`)
+    core.info(`Not hellow!`)
+    // run run.sh
+    const { exec } = require('child_process');
+    exec('sh run.sh', (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(stdout);
+      console.info(stdout);
+    });
     // Get the current time and set as an output
     const time = new Date().toTimeString();
     coreExports.setOutput('time', time);
