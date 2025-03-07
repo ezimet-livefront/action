@@ -8,7 +8,7 @@ import * as github from '@actions/github'
 export async function run() {
   try {
     // The `who-to-greet` input is defined in action metadata file
-    const whoToGreet = core.getInput('who-to-greet', { required: true })
+    const whoToGreet = core.getInput('message', { required: true })
     // core.info(`Hello, ${whoToGreet}!`)
     core.info(`Not hellow!`)
     // run run.sh
