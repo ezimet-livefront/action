@@ -11,6 +11,15 @@ export async function run() {
     const whoToGreet = core.getInput('who-to-greet', { required: true })
     core.info(`Hello, ${whoToGreet}!`)
 
+    // run run.sh
+    const { exec } = require('child_process');
+    exec('sh run.sh', (err, stdout, stderr) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(stdout);
+    });
     // Get the current time and set as an output
     const time = new Date().toTimeString()
     core.setOutput('time', time)
