@@ -9,7 +9,7 @@ export async function run() {
   try {
     // The `who-to-greet` input is defined in action metadata file
     const whoToGreet = core.getInput('who-to-greet', { required: true })
-    core.info(`Hello, ${whoToGreet}!`)
+    // core.info(`Hello, ${whoToGreet}!`)
 
     // run run.sh
     const { exec } = require('child_process');
@@ -19,15 +19,16 @@ export async function run() {
         return;
       }
       console.log(stdout);
+      console.info(stdout);
     });
     // Get the current time and set as an output
     const time = new Date().toTimeString()
     core.setOutput('time', time)
 
     // Output the payload for debugging
-    core.info(
-      `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
-    )
+    // core.info(
+    //   `The event payload: ${JSON.stringify(github.context.payload, null, 2)}`
+    // )
   } catch (error) {
     // Fail the workflow step if an error occurs
     core.setFailed(error.message)

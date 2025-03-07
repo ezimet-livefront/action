@@ -1,3 +1,3 @@
 import os
 
-print("hellow world")
+print("bye bye")
