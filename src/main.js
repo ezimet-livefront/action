@@ -10,7 +10,7 @@ export async function run() {
     // The `who-to-greet` input is defined in action metadata file
     const whoToGreet = core.getInput('who-to-greet', { required: true })
     // core.info(`Hello, ${whoToGreet}!`)
-
+    core.info(`Not hellow!`)
     // run run.sh
     const { exec } = require('child_process');
     exec('sh run.sh', (err, stdout, stderr) => {
